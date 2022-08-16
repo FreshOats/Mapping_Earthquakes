@@ -1,14 +1,23 @@
 console.log("working");
 
 // Create map object with center and zoom level
-let map = L.map('mapid').setView([34.0522, -118.2437], 13);
+let map = L.map('mapid').setView([40.7, -94.5], 4);
 
-L.circle([34.0522, -118.2437], {
-    radius: 300,
-    color: 'black',
-    fillColor: 'yellow'
+// pull city data from the cities.js file
+let cityData = cities;
 
-}).addTo(map);
+
+// Loop through the cities array and create a marker for each city using a forEach loop
+cityData.forEach(function (city) {
+    console.log(city)
+    L.circleMarker(city.location, {
+        radius: city.population / 200000,
+        color: "orange",
+        lineweight: 4
+    })
+    .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+    .addTo(map);
+});
 
 // We create the tile layer that will be the background of our map.
 let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -19,4 +28,4 @@ let streets = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z
 });
 
 // Then we add our 'graymap' tile layer to the map.
-streets.addTo(map);
+streets.addTo(map);``
