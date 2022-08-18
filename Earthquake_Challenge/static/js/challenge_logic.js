@@ -143,26 +143,26 @@ legend.onAdd = function() {
 
 
   // 3. Use d3.json to make a call to get our Tectonic Plate geoJSON data.
-  d3.json("tectonicplates.json").then(function (data) {
+  d3.json("static/js/tectonicplates.json").then(function (data) {
     
     function styleInfo(feature) {
       return {
         opacity: 1,
-        fillOpacity: 0.1,
+        fillOpacity: 0,
         color: "blue",
-        fillColor: "azure",
         stroke: true,
-        weight: 0.5
-      }
+        weight: 1
+      };
     }
+
     L.geoJson(data, {
 
-      style: styleInfo, 
+      style: styleInfo,
       onEachFeature: function (feature, layer) {
         layer.bindPopup(feature.properties.PlateName);
       }
     }).addTo(tectonicPlates);
     tectonicPlates.addTo(map);
-  })
+  });
   
 });

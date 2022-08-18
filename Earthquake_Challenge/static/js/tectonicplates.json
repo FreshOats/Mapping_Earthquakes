@@ -1,4 +1,3 @@
-// Data acquired from https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_plates.json
 {
     "type": "FeatureCollection",
     "features": [
