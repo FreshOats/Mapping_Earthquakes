@@ -1,4 +1,4 @@
-# Mapping Earthquakes
+# Mapping Earthquakes from Last Week
 ### Creating Interactive Maps with GeoJSON Data
 #### by Justin R. Papreck
 ---
